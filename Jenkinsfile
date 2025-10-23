@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
-        DOCKER_IMAGE = 'litioner/ShoppingCart'
+        DOCKER_IMAGE = 'litioner/shopping_cart'
         DOCKER_TAG = '1.0'
     }
 
