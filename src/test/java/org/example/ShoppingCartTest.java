@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShoppingCartTest {
-
     @Test
     void testEnglishBundle() {
         ResourceBundle rb = ResourceBundle.getBundle("MessagesBundle", new Locale("en", "US"));
@@ -29,5 +28,15 @@ public class ShoppingCartTest {
     void testJapaneseBundle() {
         ResourceBundle rb = ResourceBundle.getBundle("MessagesBundle", new Locale("ja", "JP"));
         assertEquals("購入する商品の数を入力してください:", rb.getString("prompt.items"));
+    }
+
+    // Objective: Create unit tests using JUnit 5 to verify the key functionalities of the application (e.g., calculating the
+    // total cost for each item, calculating the total cost of the cart).
+    @Test
+    void testCalculateTotalCost() {
+        double price = 5.0;
+        int quantity = 3;
+        double expectedTotal = 15.0;
+        assertEquals(expectedTotal, ShoppingCart.calculateTotalCost(price, quantity));
     }
 }

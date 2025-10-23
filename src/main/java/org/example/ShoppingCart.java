@@ -6,6 +6,10 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class ShoppingCart {
+    public static double calculateTotalCost(double price, int quantity) {
+        return price * quantity;
+    }
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in, "UTF-8");
 
@@ -30,7 +34,6 @@ public class ShoppingCart {
         ResourceBundle rb = ResourceBundle.getBundle("MessagesBundle", locale);
         NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(locale);
 
-        // --- Use ResourceBundle for all prompts ---
         System.out.print(rb.getString("prompt.items") + " ");
         int itemCount = scan.nextInt();
 
@@ -43,7 +46,7 @@ public class ShoppingCart {
             System.out.print(rb.getString("prompt.quantity") + " " + i + ": ");
             int quantity = scan.nextInt();
 
-            totalCost += price * quantity;
+            totalCost += calculateTotalCost(price, quantity);
         }
 
         System.out.println("-----------------------------------");

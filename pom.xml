@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>InclassWithJenkins</artifactId>
+    <artifactId>ShoppingCart</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -20,9 +20,6 @@
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
-
-
-
     </dependencies>
     <build>
         <finalName>test</finalName>
@@ -38,7 +35,6 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <!-- Generate code coverage report after tests run -->
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
@@ -61,8 +57,6 @@
                 </configuration>
             </plugin>
 
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -70,17 +64,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <!-- Specify the fully qualified Main class -->
                             <mainClass>org.example.ShoppingCart</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
-
-
-
-
         </plugins>
     </build>
-
 </project>
