@@ -30,13 +30,36 @@ public class ShoppingCartTest {
         assertEquals("購入する商品の数を入力してください:", rb.getString("prompt.items"));
     }
 
-    // Objective: Create unit tests using JUnit 5 to verify the key functionalities of the application (e.g., calculating the
-    // total cost for each item, calculating the total cost of the cart).
     @Test
-    void testCalculateTotalCost() {
+    void testUpdateTotalCost() {
         double price = 5.0;
         int quantity = 3;
         double expectedTotal = 15.0;
-        assertEquals(expectedTotal, ShoppingCart.calculateTotalCost(price, quantity));
+        ShoppingCart shoppingCart = new ShoppingCart();
+        assertEquals(expectedTotal, shoppingCart.updateTotalCost(price, quantity));
+    }
+    
+    @Test
+    void testAddItems() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+        assertEquals(5, shoppingCart.addItems(5));
+        assertEquals(8, shoppingCart.addItems(3));
+    }
+
+    @Test 
+    void testAddItems_throwsIllegalArgumentException() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+        try {
+            shoppingCart.removeItems(1);
+        } catch (IllegalArgumentException e) {
+            assertEquals("Item count can't be negative", e.getMessage());
+        }
+    }
+
+    @Test
+    void testRemoveItems() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.addItems(10);
+        assertEquals(0, shoppingCart.removeItems(10));
     }
 }
