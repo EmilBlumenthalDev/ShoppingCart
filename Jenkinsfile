@@ -41,9 +41,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                        sh "docker buildx build --platform linux/amd64,linux/arm64 -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
                     } else {
-                        bat "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                        bat "docker buildx build --platform linux/amd64,linux/arm64 -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
                     }
                 }
             }

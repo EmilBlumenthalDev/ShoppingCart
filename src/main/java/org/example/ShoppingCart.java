@@ -1,10 +1,13 @@
 package org.example;
 
 public class ShoppingCart extends Throwable {
-    private int itemCount = 0;
-    private double totalCost = 0;
+    private int itemCount;
+    private double totalCost;
 
-    public ShoppingCart() {}
+    public ShoppingCart() {
+        this.itemCount = 0;
+        this.totalCost = 0.0;
+    }
 
     public int addItems(int numberOfItems) {
         itemCount += numberOfItems;

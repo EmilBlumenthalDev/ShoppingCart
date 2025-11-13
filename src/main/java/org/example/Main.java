@@ -4,10 +4,11 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in, "UTF-8");
+        Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
 
         System.out.println("Select the language:");
         System.out.println("1. English");
